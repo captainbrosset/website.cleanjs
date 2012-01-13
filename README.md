@@ -1,7 +1,7 @@
 This is the source code of the website http://cleanjscode.appspot.com
 Javascript code review/checkstyle tool.
 
-It is based on [https://github.com/captainbrosset/cleanjs](cleanjs) also developed by myself.
+It is based on [cleanjs](https://github.com/captainbrosset/cleanjs) also developed by myself.
 
 The website uses the Google App Engine SDK and infrastructure.
 
