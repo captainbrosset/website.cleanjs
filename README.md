@@ -19,3 +19,5 @@ TODO
 - header separated
 - colors to be revised. Maybe icons rather than colors. Nice embossed
 - grade reports, run stats (grade= % of errors/warn per file lines)
+- achievements
+- allow upload, url, textarea
