@@ -21,3 +21,4 @@ TODO
 - grade reports, run stats (grade= % of errors/warn per file lines)
 - achievements
 - allow upload, url, textarea
+- build system to get cleanjs from github (tag), build, deploy to appengine, ...
