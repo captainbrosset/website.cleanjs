@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <title>cleanjs</title>
+		<style type="text/css">
+			h1 {
+				margin: 0;
+				padding: 1em 1em 1em 25px;
+			}
+			body {
+				margin: 0;
+				padding: 1em;
+				font-size: 12px;
+				font-family: verdana;
+				overflow-x: hidden;
+				width: 100%;
+				color: #444;
+			}
+			h1 {
+				margin: 0;
+				padding: 1em 1em 1em 25px;
+			}
+			.general {
+				padding: 0;
+				margin: 0 0 30px 30px;
+				list-style-type: none;
+				width: 500px;
+				color: #222;
+			}
+			.lines {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				width: 10000px;
+			}
+			.lines .line {
+				overflow: hidden;
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+			.lines .line .gutter {
+				float: left;
+				text-align: right;
+				width: 25px;
+				padding: 4px 5px 4px 0;
+				color: #aaa;
+				font-size: 11px;
+			}
+			.lines .nomessage .gutter {
+				color: #ddd;
+			}
+			.lines .line .messages {
+				float: left;
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				width: 500px;
+			}
+			.lines .line .messages li, .general li {
+				padding: 4px 1em;
+				line-height: 13px;
+			}
+			.lines .line .code {
+				float :left;
+				margin: 0;
+				padding: 0 1em;
+				font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
+				font-size: 11px;
+			}
+			.error, .info, .warning {
+				border-left: 4px solid #3e93bf;
+				background: #eee;
+			}
+			.warning {
+				border-color: #f5931f;
+			}
+			.error {
+				font-weight: bold;
+				border-color: #d83e0f;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://github.com/captainbrosset/cleanjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+		<h1>cleanjs report</h1>
+		
+		<ul class='general'>
+			{% for message in bag.get_messages %}
+				{% if not message.line %}
+					<li class='{{message.type}}'>{{message.content}}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		
+		<ul class='lines'>
+			{% for line in lines %}
+				<li class='line{% if line.message_count == 0 %} nomessage{% endif %}'>
+					<span class='gutter'>{{ line.line.line_number }}</span>
+					<ul class='messages'>
+						{% if line.message_count == 0 %}
+							<li>&nbsp;</li>
+						{% endif %}
+						{% for message in line.messages %}
+							<li class='{{ message.type }}'>{{ message.content }}</li>
+						{% endfor %}
+					</ul>
+					<pre class='code'>{{ line.line.complete_line|escape }}</pre>
+				</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
