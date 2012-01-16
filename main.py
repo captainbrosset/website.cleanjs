@@ -39,6 +39,21 @@ class MainPage(BaseHandler):
 			messages = message_bag.get_messages_on_line(line.line_number)
 			lines_data.append({"messages": messages, "message_count": len(messages), "line": line})
 	
-		self.writeTemplateToResponse("report.html", {"bag" : message_bag, "lines" : lines_data})
+		nb_warnings = 0
+		nb_errors = 0
+		for msg in message_bag.get_messages():
+			if msg.type == "warning":
+				nb_warnings += 1
+			if msg.type == "error":
+				nb_errors += 1
+		
+		# errors are 3 times more important than warnings
+		global_rate = int(float(nb_errors * 3 + nb_warnings) / 4)
+		if global_rate > 26:
+			global_rate = 26
+		
+		rating = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"][int(global_rate) - 1]
+	
+		self.writeTemplateToResponse("report.html", {"bag" : message_bag, "lines" : lines_data, "rating": rating})
 
 app = webapp2.WSGIApplication([('/', MainPage)], debug=True)

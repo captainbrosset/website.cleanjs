@@ -16,9 +16,5 @@ TODO
 ====
 
 - Save reports and link them with padlessb64 urls
-- header separated
-- colors to be revised. Maybe icons rather than colors. Nice embossed
-- grade reports, run stats (grade= % of errors/warn per file lines)
-- achievements
+- achievements, gifs for winners!
 - allow upload, url, textarea
-- build system to get cleanjs from github (tag), build, deploy to appengine, ...
