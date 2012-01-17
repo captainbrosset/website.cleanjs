@@ -18,3 +18,4 @@ TODO
 - Save reports and link them with padlessb64 urls
 - achievements, gifs for winners!
 - allow upload, url, textarea
+- run stats on the whole code submitted so far
