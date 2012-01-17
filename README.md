@@ -19,3 +19,7 @@ TODO
 - achievements, gifs for winners!
 - allow upload, url, textarea
 - run stats on the whole code submitted so far
+- really separate the header general messages from the rest (especially the stats about the file itself have nothing to do in the column)
+- give a way to come back to home from report
+- open REST service to integrate in other tools (service hook from github)
+- optionally give possibility to identify code that was reviewed already in order to generate a widget with grade
