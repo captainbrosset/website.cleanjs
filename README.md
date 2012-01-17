@@ -15,7 +15,7 @@ Note that I haven't done anything special yet to manage the dependency from the 
 TODO
 ====
 
-- Save reports and link them with padlessb64 urls
+- Save reports and link them with [padlessb64](https://gist.github.com/1493180) urls (seems easy enough with [pickle/cpickle](http://docs.python.org/library/pickle.html) to dump or load serialized objects to/from datastore)
 - achievements, gifs for winners!
 - allow upload, url, textarea
 - run stats on the whole code submitted so far
