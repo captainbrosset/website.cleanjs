@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<style type="text/css">
+		p {
+			margin: 0;
+			padding: 1em 1em 1em 25px;
+		}
+		textarea {
+			width: 500px;
+			height: 300px;
+			background: #eee;
+			border: 2px solid #ccc;
+			color: #4e4e4e;
+			border-radius: 5px;
+			padding: 1em;
+		}
+	</style>
+	<p>Copy your javascript source code below and hit review</p>
+	<form method="post" action="/report">
+		<p>
+			<textarea name="code"></textarea>
+		</p>
+		<p>
+			<button type="submit">review</button>
+		</p>
+	</form>
+{% endblock %}
