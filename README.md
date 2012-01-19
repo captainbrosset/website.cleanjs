@@ -15,7 +15,11 @@ Note that I haven't done anything special yet to manage the dependency from the 
 TODO
 ====
 
-- achievements, gifs for winners! http://channel9.msdn.com/achievements/visualstudio
+- achievements
+  - http://channel9.msdn.com/achievements/visualstudio
+  - http://www.lense.fr/badges/
+    - http://www.lense.fr/wp-content/themes/lense/images/badges/badge-moyen.png
+  - http://www.getsteamachievements.com/game/1359/super-meat-boy/
 - run stats on the whole code submitted so far
 - open REST service to integrate in other tools (service hook from github)
 - optionally give possibility to identify code that was reviewed already in order to generate a widget with grade
