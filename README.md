@@ -15,7 +15,7 @@ Note that I haven't done anything special yet to manage the dependency from the 
 TODO
 ====
 
-- achievements, gifs for winners!
+- achievements, gifs for winners! http://channel9.msdn.com/achievements/visualstudio
 - run stats on the whole code submitted so far
 - open REST service to integrate in other tools (service hook from github)
 - optionally give possibility to identify code that was reviewed already in order to generate a widget with grade
