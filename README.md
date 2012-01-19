@@ -16,7 +16,11 @@ TODO
 ====
 
 - achievements, gifs for winners!
-- allow upload, url, textarea
 - run stats on the whole code submitted so far
 - open REST service to integrate in other tools (service hook from github)
 - optionally give possibility to identify code that was reviewed already in order to generate a widget with grade
+- avoid to submit empty codes
+- do a hash of the submitted code to avoid adding codes in DB that is already there
+- cursor pointer on buttons
+- button to upload, next to the review
+- textfield to put url of code to review
