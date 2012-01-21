@@ -1,6 +1,6 @@
 import base
-from cleanjs import fileparser
-from cleanjs import reviewer
+from cleanjs.parsers import fileparser
+from cleanjs.reviewers import reviewer
 from libs import pb64
 from model import report as reportdb
 
