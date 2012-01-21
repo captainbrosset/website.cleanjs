@@ -36,5 +36,8 @@ class ReportHandler(base.BaseHandler):
 
 	def post(self):
 		src_code = self.request.get('code')
-		index = self.store_file(src_code)
-		self.redirect("/" + pb64.encodeB64Padless(index))
+		if src_code == "":
+			self.redirect("/")
+		else:
+			index = self.store_file(src_code)
+			self.redirect("/" + pb64.encodeB64Padless(index))
