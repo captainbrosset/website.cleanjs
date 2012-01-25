@@ -3,34 +3,48 @@
 	<head>
 		<meta charset="utf-8">
 	    <title>cleanjs</title>
-	    <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
 		<style type="text/css">
-			h1 {
-				margin: 0;
-				padding: 1em 1em 1em 25px;
-			}
 			body {
 				margin: 0;
-				padding: 1em;
-				font-size: 12px;
-				font-family: 'Lato', sans-serif;
+				padding: 0 0 50px 0;
+				font-size: 15px;
+				font-family: tahoma;
 				overflow-x: hidden;
 				width: 100%;
 				color: #444;
+				position: relative;
+			}
+			input {
+				font-family: tahoma;
+				color: #444;
+			}
+			a {
+				color: #d83e0f;
 			}
 			h1 {
-				margin: 0;
-				font-size: 3em;
-				padding: .5em 1em .5em 25px;
+				margin: 25px;
+				font-size: 30px;
+				padding: 0;
 			}
 			h1 a {
 				color: #4e4e4e;
 				text-decoration: none;
 			}
-			h1 a span {
-				color: #ff9402;
+			h1 span {
+				color: #d83e0f;
 			}
-
+			p {
+				margin: 25px;
+				padding: 0;
+			}
+			#footer {
+				color: #aaa;
+				font-size: 12px;
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+				text-align: right;
+			}
 			button, button:visited {
 				background-image: linear-gradient(bottom, rgb(224,119,0) 100%, rgb(255,150,2) 33%);
 				background-image: -o-linear-gradient(bottom, rgb(224,119,0) 100%, rgb(255,150,2) 33%);
@@ -42,26 +56,43 @@
 					linear,
 					left bottom,
 					left top,
-					color-stop(1, rgb(224,119,0)),
-					color-stop(0.33, rgb(255,150,2))
+					color-stop(1, rgb(220,220,220)),
+					color-stop(0.33, rgb(190,190,190))
 				);
-				color: white;
+				color: #333;
 				font-family: 'Lato', sans-serif;
 				font-weight: bold;
 				border: 0;
 				padding: .25em 1em;
 				border-radius: 4px;
 				font-size: 2em;
-				
+				cursor: pointer;
+				border: 1px solid #aaa;
+			}
+			button:hover {
+				background-image: none;
+				background-color: #d83e0f;
+				text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+				color: white;
 			}
 		</style>
 	</head>
 	<body>
-		<a href="http://github.com/captainbrosset/cleanjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
-		
-		<h1>
-			<a href="/">clean<span>js</span></a>
-		</h1>
-		{% block content %}content{% endblock %}
+		<div id="header">
+			<h1>
+				<a href="/">clean<span>js</span></a>
+			</h1>
+			<div class="tools">
+				{% block tools %}{% endblock %}
+			</div>
+		</div>
+		<div class="bodyWrapper">
+			{% block content %}content{% endblock %}
+		</div>
+		<div id="footer">
+			cleanjs is a javascript clean code review tool by <a href="http://about.me/patrickbrosset">Patrick Brosset</a>
+			<br />
+			<a href="https://github.com/captainbrosset/cleanjs">Fork it on Github!</a>
+		</div>
 	</body>
 </html>

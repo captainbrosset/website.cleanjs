@@ -1,9 +1,11 @@
 application: cleanjscode
-version: 1
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
+- url: /statics
+  static_dir: statics
 - url: /.*
   script: main.app

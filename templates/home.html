@@ -2,30 +2,33 @@
 
 {% block content %}
 	<style type="text/css">
-		p {
-			margin: 0;
-			padding: 1em 1em 1em 25px;
+		.editor {
+			background: #eee;
+			padding: 25px;
 		}
 		textarea {
-			width: 500px;
-			height: 300px;
-			background: #eee;
-			border: 2px solid #ccc;
+			height: 250px;
+			border: 0;
 			color: #4e4e4e;
-			border-radius: 5px;
-			padding: 1em;
-		}
-		button {
-			cursor: pointer;
+			width: 100%;
+			line-height: 25px;
+			font-size: 15px;
+			background: #eee;
+			outline: none;
 		}
 	</style>
-	<p>Copy your javascript source code below and hit review</p>
+	<p>Paste javascript code below and hit review to know how clean it is!</p>
 	<form method="post" action="/report">
-		<p>
-			<textarea name="code"></textarea>
-		</p>
+		<div class="editor">
+			<textarea name="code" id="code"></textarea>
+		</div>
 		<p>
 			<button type="submit">review</button>
 		</p>
 	</form>
+	<script type="text/javascript">
+		window.onload = function() {
+			document.getElementById("code").focus();
+		};
+	</script>
 {% endblock %}

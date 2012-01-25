@@ -32,7 +32,15 @@ class ReportHandler(base.BaseHandler):
 			messages = message_bag.get_messages_on_line(line.line_number)
 			lines_data.append({"messages": messages, "message_count": len(messages), "line": line})
 	
-		self.writeTemplateToResponse("report.html", {"bag" : message_bag, "lines" : lines_data, "rating": rating, "pb64": pb64.encodeB64Padless(index)})
+		self.writeTemplateToResponse("report.html", {
+			"bag" : message_bag,
+			"lines" : lines_data,
+			"rating": rating,
+			"pb64": pb64.encodeB64Padless(index),
+			"nb_total_lines": len(lines),
+			"nb_code_lines": len(file_data.lines.get_code_lines()),
+			"nb_comments_lines": len(file_data.lines.get_comments_lines())
+		})
 
 	def post(self):
 		src_code = self.request.get('code')
