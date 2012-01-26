@@ -20,14 +20,7 @@ TODO
   - http://www.lense.fr/badges/
     - http://www.lense.fr/wp-content/themes/lense/images/badges/badge-moyen.png
   - http://www.getsteamachievements.com/game/1359/super-meat-boy/
-- run stats on the whole code submitted so far
 - open REST service to integrate in other tools (service hook from github)
 - optionally give possibility to identify code that was reviewed already in order to generate a widget with grade
-- button to upload, next to the review
-- textfield to put url of code to review
-- button to share report (make it more obvious what the base64 URL is for)
-- octocat in footer, for fork me
-- slightly bigger logo
 - share URL is not great
-- line numbers are too greyed out
-- grade rotate not cross-browser ;-)
+- do something with the stats ?

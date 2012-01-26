@@ -16,19 +16,55 @@
 			background: #eee;
 			outline: none;
 		}
+		#uploadForm, #uploadFrame {
+			visibility: hidden;
+			position: absolute;
+			top: -1000px;
+			left: -1000px;
+		}
 	</style>
+
 	<p>Paste javascript code below and hit review to know how clean it is!</p>
-	<form method="post" action="/report">
+	<form method="post" action="/report" id="reviewForm">
 		<div class="editor">
 			<textarea name="code" id="code"></textarea>
 		</div>
 		<p>
 			<button type="submit">review</button>
+			or <a href="#" id="uploadLink">upload a file</a>
 		</p>
 	</form>
+	<form id="uploadForm" target="uploadFrame" action="/upload" method="post" enctype="multipart/form-data">
+		<input type="file" id="script" name="script" />
+		<button type="submit">Upload</button>
+	</form>
+	<iframe src="about:blank" id="uploadFrame" name="uploadFrame"></iframe>
+
 	<script type="text/javascript">
 		window.onload = function() {
 			document.getElementById("code").focus();
+
+			var fileInput = document.getElementById("script");
+			var uploadLink = document.getElementById("uploadLink");
+			var uploadForm = document.getElementById("uploadForm");
+			var uploadFrame = document.getElementById("uploadFrame");
+			var sourceCode = document.getElementById("code");
+			var reviewForm = document.getElementById("reviewForm")
+			
+			uploadLink.onclick = function() {
+				fileInput.click();
+				return false;
+			};
+
+			fileInput.onchange = function() {
+				uploadForm.submit();
+			};
+
+			uploadFrame.onload = function() {
+				var contentDocument = this.contentDocument || this.contentWindow.document;
+				sourceCode.value = contentDocument.body.getElementsByTagName("TEXTAREA")[0].value;
+				reviewForm.submit();
+			}
 		};
 	</script>
 {% endblock %}

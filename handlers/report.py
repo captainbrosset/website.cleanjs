@@ -34,6 +34,8 @@ class ReportHandler(base.BaseHandler):
 			messages = message_bag.get_messages_on_line(line.line_number)
 			lines_data.append({"messages": messages, "message_count": len(messages), "line": line})
 	
+		reportdb.add_file_to_global_stats(src_code, file_data, rating, message_bag)
+
 		self.writeTemplateToResponse("report.html", {
 			"bag" : message_bag,
 			"lines" : lines_data,
