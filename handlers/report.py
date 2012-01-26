@@ -1,3 +1,5 @@
+import unicodedata
+
 import base
 from cleanjs.parsers import fileparser
 from cleanjs.reviewers import reviewer
@@ -44,6 +46,8 @@ class ReportHandler(base.BaseHandler):
 
 	def post(self):
 		src_code = self.request.get('code')
+		src_code = unicodedata.normalize('NFKD', src_code).encode('ascii','ignore')
+		
 		if src_code == "":
 			self.redirect("/")
 		else:
