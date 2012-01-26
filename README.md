@@ -26,4 +26,8 @@ TODO
 - button to upload, next to the review
 - textfield to put url of code to review
 - button to share report (make it more obvious what the base64 URL is for)
-- font looks bad on chrome/windows (Lato)
+- octocat in footer, for fork me
+- slightly bigger logo
+- share URL is not great
+- line numbers are too greyed out
+- grade rotate not cross-browser ;-)
