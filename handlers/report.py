@@ -6,12 +6,19 @@ from cleanjs.reviewers import reviewer
 from libs import pb64
 from model import report as reportdb
 
+class ReportByIdHandler(base.BaseHandler):
+	def get(self, id):
+		self.redirect("/" + pb64.encodeB64Padless(id))
+
 class ReportHandler(base.BaseHandler):
 	def get(self, b64=None):
 		index = pb64.decodeB64Padless(b64)
 		if index:
 			src_file = self.retrieve_file(index)
-			self.display_report(src_file, index)
+			if src_file:
+				self.display_report(src_file, index)
+			else:
+				self.redirect("/")
 		else:
 			self.redirect("/")
 	
@@ -24,7 +31,7 @@ class ReportHandler(base.BaseHandler):
 	def display_report(self, src_code, index):
 		file_data = fileparser.get_file_data_from_content("cleanjs", src_code)
 		result = reviewer.review(file_data)
-		
+
 		message_bag = result["message_bag"]
 		rating = result["rating"]
 
