@@ -8,11 +8,13 @@ import webapp2
 
 from handlers import home
 from handlers import report
+from handlers import source
 
 app = webapp2.WSGIApplication([
 	('/upload', home.UploadHandler),
 	('/report', report.ReportHandler),
 	('/r/([0-9]+)', report.ReportByIdHandler),
+	('/s/([0-9]+)', source.GetSource),
 	('/([a-zA-Z0-9]+)', report.ReportHandler),
 	('/', home.HomeHandler)
 ], debug=True)
