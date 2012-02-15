@@ -5,6 +5,7 @@ from cleanjs.parsers import fileparser
 from cleanjs.reviewers import reviewer
 from libs import pb64
 from model import report as reportdb
+import os
 
 class ReportByIdHandler(base.BaseHandler):
 	def get(self, id):
@@ -32,7 +33,7 @@ class ReportHandler(base.BaseHandler):
 		try:
 			file_data = fileparser.get_file_data_from_content("cleanjs", src_code)
 
-			result = reviewer.review(file_data)
+			result = reviewer.review(file_data, working_dir=os.getcwd() + os.sep + "cleanjs")
 
 			message_bag = result.message_bag
 			rating = result.rate
